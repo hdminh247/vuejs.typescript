@@ -1,9 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import Product from '../components/Product.vue';
 
 defineProps<{ msg: string }>()
 
 const count = ref(0)
+const products = [{
+  name: 'Product A',
+  price: 0
+}, {
+  name: 'Product B',
+  price: 1
+}]
 </script>
 
 <template>
@@ -15,6 +23,11 @@ const count = ref(0)
       Edit
       <code>components/HelloWorld.vue</code> to test HMR
     </p>
+
+    <div v-for="product in products">
+      <Product :product="product"/>
+    </div>
+   
   </div>
 </template>
 
